@@ -209,8 +209,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           overlayProps={{ opacity: 0.4, blur: 2 }}
           styles={{
             content: {
-              backgroundColor: 'black',
-              width: '192px',
+              backgroundColor: '#F3ECE3',
+              width: '222px',
               height: 'calc(100vh - 70px)',
             },
           }}
