@@ -126,7 +126,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="w-full h-screen bg-background flex flex-col relative overflow-x-hidden">
       {/* Top Navbar */}
-      <header className="fixed top-0 left-0 z-40 w-full flex items-center justify-between">
+      <header className="fixed top-0 left-0 z-40 w-full flex items-center justify-between bg-[#F3E4D4] md:bg-[#F3ECE3]">
         {/* Mobile menu icon */}
         <div className="py-2 border-r border-gray-300 px-4 w-58">
           <div className="flex bg-[#F3E4D4] items-center w-full gap-2 py-1 pl-3 ">
@@ -158,9 +158,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
 
         <div className="md:flex-1 flex justify-between px-4 md:p-6">
-          {/* Title expands */}
           {/* Active menu display */}
-          <div className="flex items-center gap-2 text-sm md:text-xl font-semibold capitalize text-button-bg">
+          <div className="hidden md:flex items-center gap-2 text-sm md:text-xl font-semibold capitalize text-button-bg">
             {menu.find((item) => item.href === pathname)?.icon}
             <span>
               {menu.find((item) => item.href === pathname)?.name || 'Dashboard'}
