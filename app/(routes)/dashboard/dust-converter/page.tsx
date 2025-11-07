@@ -45,8 +45,13 @@ const DustConverterPage = () => {
                   onChange={toggleAll}
                   classNames={{
                     input:
-                      '!bg-transparent border !border-black data-[checked]:!bg-[#EE8923] data-[checked]:!border-[#EE8923]',
-                    icon: 'text-white', // white checkmark when active
+                      'data-[checked]:!bg-[#EE8923] data-[checked]:!border-[#EE8923] [&[data-checked]]:!bg-[#EE8923] [&[data-checked]]:!border-[#EE8923]',
+                    icon: '!text-white',
+                  }}
+                  styles={{
+                    input: {
+                      '--checkbox-color': '#EE8923',
+                    },
                   }}
                 />
               </th>
