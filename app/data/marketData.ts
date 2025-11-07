@@ -1,4 +1,4 @@
-import { MarketItem } from "@/app/types/market";
+import { MarketItem } from '@/app/types/market'
 
 export const marketData: MarketItem[] = [
   {
@@ -9,6 +9,14 @@ export const marketData: MarketItem[] = [
     volume: '$524k Vol',
     votes: 415,
     category: 'Crypto',
+    slug: 'will-bitcoin-hit-200k-by-end-of-2025',
+    outcomes: [
+      { date: 'October 24', change: '2%' },
+      { date: 'October 25', change: '-1%' },
+      { date: 'October 26', change: '4%' },
+      { date: 'October 27', change: '0%' },
+      { date: 'October 28', change: '3%' },
+    ],
   },
   {
     id: 2,
@@ -18,6 +26,14 @@ export const marketData: MarketItem[] = [
     volume: '$312k Vol',
     votes: 289,
     category: 'Crypto',
+    slug: 'will-ethereum-surpass-10k-by-end-of-2025',
+    outcomes: [
+      { date: 'October 24', change: '1%' },
+      { date: 'October 25', change: '3%' },
+      { date: 'October 26', change: '-2%' },
+      { date: 'October 27', change: '5%' },
+      { date: 'October 28', change: '0%' },
+    ],
   },
   {
     id: 3,
@@ -27,6 +43,14 @@ export const marketData: MarketItem[] = [
     volume: '$524k Vol',
     votes: 415,
     category: 'Politics',
+    slug: 'will-trump-meet-with-putin-again-by-end-of-2025',
+    outcomes: [
+      { date: 'October 24', change: '0%' },
+      { date: 'October 25', change: '1%' },
+      { date: 'October 26', change: '1%' },
+      { date: 'October 27', change: '-2%' },
+      { date: 'October 28', change: '3%' },
+    ],
   },
   {
     id: 4,
@@ -36,6 +60,14 @@ export const marketData: MarketItem[] = [
     volume: '$182k Vol',
     votes: 229,
     category: 'Technology',
+    slug: 'will-apple-release-a-foldable-iphone-by-2026',
+    outcomes: [
+      { date: 'October 24', change: '4%' },
+      { date: 'October 25', change: '2%' },
+      { date: 'October 26', change: '3%' },
+      { date: 'October 27', change: '-1%' },
+      { date: 'October 28', change: '5%' },
+    ],
   },
   {
     id: 5,
@@ -45,6 +77,14 @@ export const marketData: MarketItem[] = [
     volume: '$421k Vol',
     votes: 398,
     category: 'Stock',
+    slug: 'will-tesla-stock-hit-600-by-mid-2025',
+    outcomes: [
+      { date: 'October 24', change: '2%' },
+      { date: 'October 25', change: '-1%' },
+      { date: 'October 26', change: '0%' },
+      { date: 'October 27', change: '4%' },
+      { date: 'October 28', change: '6%' },
+    ],
   },
   {
     id: 6,
@@ -54,6 +94,14 @@ export const marketData: MarketItem[] = [
     volume: '$207k Vol',
     votes: 310,
     category: 'Technology',
+    slug: 'will-google-launch-a-new-ai-os-by-2026',
+    outcomes: [
+      { date: 'October 24', change: '3%' },
+      { date: 'October 25', change: '1%' },
+      { date: 'October 26', change: '-2%' },
+      { date: 'October 27', change: '2%' },
+      { date: 'October 28', change: '1%' },
+    ],
   },
   {
     id: 7,
@@ -63,6 +111,14 @@ export const marketData: MarketItem[] = [
     volume: '$97k Vol',
     votes: 162,
     category: 'Politics',
+    slug: 'will-nigeria-adopt-full-crypto-regulation-by-2026',
+    outcomes: [
+      { date: 'October 24', change: '1%' },
+      { date: 'October 25', change: '-1%' },
+      { date: 'October 26', change: '2%' },
+      { date: 'October 27', change: '0%' },
+      { date: 'October 28', change: '4%' },
+    ],
   },
   {
     id: 8,
@@ -72,6 +128,14 @@ export const marketData: MarketItem[] = [
     volume: '$308k Vol',
     votes: 264,
     category: 'Stock',
+    slug: 'will-microsoft-overtake-apple-in-market-cap-by-2026',
+    outcomes: [
+      { date: 'October 24', change: '1%' },
+      { date: 'October 25', change: '2%' },
+      { date: 'October 26', change: '0%' },
+      { date: 'October 27', change: '1%' },
+      { date: 'October 28', change: '3%' },
+    ],
   },
   {
     id: 9,
@@ -81,6 +145,14 @@ export const marketData: MarketItem[] = [
     volume: '$286k Vol',
     votes: 176,
     category: 'Crypto',
+    slug: 'will-solana-reach-1000-by-2026',
+    outcomes: [
+      { date: 'October 24', change: '0%' },
+      { date: 'October 25', change: '3%' },
+      { date: 'October 26', change: '1%' },
+      { date: 'October 27', change: '-2%' },
+      { date: 'October 28', change: '2%' },
+    ],
   },
   {
     id: 10,
@@ -90,6 +162,14 @@ export const marketData: MarketItem[] = [
     volume: '$365k Vol',
     votes: 402,
     category: 'Technology',
+    slug: 'will-openai-release-gpt-6-by-2025',
+    outcomes: [
+      { date: 'October 24', change: '5%' },
+      { date: 'October 25', change: '3%' },
+      { date: 'October 26', change: '1%' },
+      { date: 'October 27', change: '2%' },
+      { date: 'October 28', change: '-1%' },
+    ],
   },
   {
     id: 11,
@@ -99,6 +179,14 @@ export const marketData: MarketItem[] = [
     volume: '$441k Vol',
     votes: 379,
     category: 'Stock',
+    slug: 'will-sp-500-hit-6000-by-2025',
+    outcomes: [
+      { date: 'October 24', change: '2%' },
+      { date: 'October 25', change: '1%' },
+      { date: 'October 26', change: '-1%' },
+      { date: 'October 27', change: '3%' },
+      { date: 'October 28', change: '0%' },
+    ],
   },
   {
     id: 12,
@@ -109,5 +197,13 @@ export const marketData: MarketItem[] = [
     volume: '$188k Vol',
     votes: 241,
     category: 'Technology',
+    slug: 'will-meta-release-new-vr-glasses-by-2025',
+    outcomes: [
+      { date: 'October 24', change: '3%' },
+      { date: 'October 25', change: '2%' },
+      { date: 'October 26', change: '-1%' },
+      { date: 'October 27', change: '4%' },
+      { date: 'October 28', change: '2%' },
+    ],
   },
 ]

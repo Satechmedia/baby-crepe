@@ -1,3 +1,8 @@
+export interface MarketOutcome {
+  date: string
+  change: string
+}
+
 export interface MarketItem {
   id: number
   title: string
@@ -5,7 +10,7 @@ export interface MarketItem {
   chance: number
   volume: string
   votes: number
-  category: 'Crypto' | 'Politics' | 'Stock' | 'Technology'
-  yesLabel?: string
-  noLabel?: string
+  category: string
+  slug: string
+  outcomes: MarketOutcome[]
 }
