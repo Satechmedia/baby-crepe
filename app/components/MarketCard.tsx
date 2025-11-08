@@ -15,7 +15,12 @@ const MarketCard: React.FC<MarketCardProps> = ({ item }) => {
     >
       <div className="flex gap-2">
         <div>
-          <h3 className="font-bold text-xs md:text-sm mb-1">{item.title}</h3>
+          <h3
+            className="font-bold text-xs md:text-sm mb-1 line-clamp-2"
+            title={item.title}
+          >
+            {item.title}
+          </h3>
           <p className="text-[10px] md:text-xs mb-3">{item.description}</p>
         </div>
 
