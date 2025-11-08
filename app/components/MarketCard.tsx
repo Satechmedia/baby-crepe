@@ -34,11 +34,11 @@ const MarketCard: React.FC<MarketCardProps> = ({ item }) => {
       </div>
 
       <div className="flex gap-2 mb-3 mt-2">
-        <button className="flex-1 bg-[#C2EAC7] text-green-700 py-1.5 rounded-md text-[10px] md:text-xs font-medium">
+        <button className="flex-1 bg-[#C2EAC7] text-green-700 py-1.5 rounded-md text-[10px]! md:text-xs! font-medium">
           Yes
         </button>
 
-        <button className="flex-1 bg-[#F6ADA1] text-red-700 py-1.5 rounded-md text-[10px] md:text-xs font-medium">
+        <button className="flex-1 bg-[#F6ADA1] text-red-700 py-1.5 rounded-md text-[10px]! md:text-xs! font-medium">
           No
         </button>
       </div>

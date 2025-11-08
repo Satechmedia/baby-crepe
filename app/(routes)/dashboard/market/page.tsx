@@ -30,7 +30,7 @@ const MarketPage = () => {
           className="w-full md:w-1/2 px-4 py-2 rounded-lg bg-[#F3E4D4] border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
         />
 
-        <div className="w-full md:w-1/2 flex gap-2 md:flex-wrap overflow-auto">
+        <div className="w-full md:w-1/2 flex gap-2 md:flex-wrap overflow-auto scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat}

@@ -123,14 +123,16 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           size="xs"
           styles={{
             content: {
-              backgroundColor: '#F3ECE3',
-              width: '75%', 
-              maxWidth: '280px', 
-              borderTopRightRadius: '1rem',
-              borderBottomRightRadius: '1rem',
+              backgroundColor: '#F3E4D4',
+              width: '75%',
+              maxWidth: '280px',
+              maxHeight: 'calc(100vh - 80px)',
+              marginTop: '80px',
+              borderTopRightRadius: '5px',
+              borderBottomRightRadius: '5px',
             },
           }}
-          className="md:hidden absolute top-0 left-0 max-w-[222px] h-full z-50"
+          className="md:hidden  z-50"
         >
           {sidebarContent}
         </Drawer>

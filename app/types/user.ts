@@ -15,6 +15,5 @@ export interface User {
   tweets: number
   verified: boolean
   status?: 'active' | 'inactive' | 'suspended'
-  wallet: number // 💰 User’s wallet balance
-  points: number // ⭐ User’s reward points
+  points: number // ⭐ User’s total reward or reputation points
 }

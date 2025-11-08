@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({
     <header className="fixed top-0 left-0 z-40 w-full flex items-center justify-between bg-[#F3E4D4] md:bg-[#F3ECE3]">
       {/* Mobile menu + logo */}
       <div className="py-2 border-r border-gray-300 px-4 w-full md:w-58">
-        <div className="flex justify-between items-center w-full md:gap-2 py-1 pl-3 ">
+        <div className="flex justify-between items-center w-full md:gap-2 py-1 md:pl-3 ">
           {/* Menu toggle (mobile) */}
           <div className="flex items-center gap-3 md:hidden order-2 md:order-1">
             <div className="flex items-center gap-4">
@@ -46,11 +46,26 @@ const Navbar: React.FC<NavbarProps> = ({
                     onClick={toggleDropdown}
                   />
                   {isDropdownOpen && (
-                    <div className="absolute right-0 top-[40px] mt-2 bg-black rounded-lg shadow-lg text-xs w-32 space-y-2.5">
-                      <p className="px-4 py-2 text-white">
-                        {user?.wallet
-                          ? `Wallet: ${user.wallet}`
-                          : 'No wallet connected'}
+                    <div className="absolute right-0 top-10 mt-2 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-40 space-y-2.5">
+                      <div className="px-4 py-2  border-b border-gray-700">
+                        <p className="font-semibold capitalize mb-2 flex gap-2 items-center">
+                          <FaRegUserCircle /> {user?.username || 'User'}
+                        </p>
+                        <p className="text-[10px]  mt-1">
+                          Status:{' '}
+                          <span className="text-green-600">
+                            {user?.status === 'active'
+                              ? user?.status
+                              : 'Inactive'}
+                          </span>
+                        </p>
+                        <p className="text-[10px] mt-1">
+                          {user?.tweets || '0'} Tweets •{' '}
+                          {user?.followers || '0'} Followers
+                        </p>
+                      </div>
+                      <p className="px-4 py-2 ">
+                        ⭐ Points: {user?.points ?? 0}
                       </p>
                       <button
                         className="w-full px-4 py-2 text-white bg-red-600 rounded-b-lg cursor-pointer"
@@ -96,7 +111,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </span>
         </div>
 
-        {/* Wallet / user dropdown */}
+        {/* user dropdown */}
         <div className="flex items-center gap-4">
           {isAuthenticated && (
             <div className="relative">
@@ -106,12 +121,23 @@ const Navbar: React.FC<NavbarProps> = ({
                 onClick={toggleDropdown}
               />
               {isDropdownOpen && (
-                <div className="absolute right-0 top-[40px] mt-2 bg-black rounded-lg shadow-lg text-xs w-32 space-y-2.5">
-                  <p className="px-4 py-2 text-white">
-                    {user?.wallet
-                      ? `Wallet: ${user.wallet}`
-                      : 'No wallet connected'}
-                  </p>
+                <div className="absolute right-0 top-10 mt-2 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-40 space-y-2.5">
+                  <div className="px-4 py-2  border-b border-gray-700">
+                    <p className="font-semibold capitalize mb-2 flex gap-2 items-center">
+                      <FaRegUserCircle /> {user?.username || 'User'}
+                    </p>
+                    <p className="text-[10px]  mt-1">
+                      Status:{' '}
+                      <span className="text-green-600">
+                        {user?.status === 'active' ? user?.status : 'Inactive'}
+                      </span>
+                    </p>
+                    <p className="text-[10px] mt-1">
+                      {user?.tweets || '0'} Tweets • {user?.followers || '0'}{' '}
+                      Followers
+                    </p>
+                  </div>
+                  <p className="px-4 py-2 ">⭐ Points: {user?.points ?? 0}</p>
                   <button
                     className="w-full px-4 py-2 text-white bg-red-600 rounded-b-lg cursor-pointer"
                     onClick={handleDisconnect}
