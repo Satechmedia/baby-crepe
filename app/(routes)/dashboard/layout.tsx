@@ -1,37 +1,23 @@
 'use client'
 
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import { Drawer } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import Navbar from '@/app/components/Navbar'
-import { mockUser } from '@/app/data/user'
+import { ConnectWallet } from '@/app/components/ConnectWallet'
+import { useAdmin } from '@/app/hooks/useAdmin'
 import { FaExchangeAlt, FaTelegram } from 'react-icons/fa'
-import { MdOutlineBarChart } from 'react-icons/md'
+import { MdOutlineBarChart, MdAdminPanelSettings } from 'react-icons/md'
 import { RiSettingsLine } from 'react-icons/ri'
-import { FaRegUserCircle } from 'react-icons/fa'
 import { SlEarphones } from 'react-icons/sl'
 import { FaXTwitter } from 'react-icons/fa6'
 import '@mantine/core/styles.css'
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname()
-  const [opened, { open, close, toggle }] = useDisclosure(false)
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [user, setUser] = useState<typeof mockUser | null>(null)
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
-
-  const handleConnectWallet = () => {
-    setUser(mockUser)
-    setIsAuthenticated(true)
-  }
-
-  const handleDisconnect = () => {
-    setIsAuthenticated(false)
-    setUser(null)
-  }
-
-  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev)
+  const [opened, { close, toggle }] = useDisclosure(false)
+  const { isAdmin } = useAdmin()
 
   const menu = [
     {
@@ -49,6 +35,16 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       href: '/dashboard/on-chain',
       icon: <RiSettingsLine size={24} />,
     },
+    // Admin menu item - only shown to admins
+    ...(isAdmin
+      ? [
+          {
+            name: 'admin',
+            href: '/dashboard/admin',
+            icon: <MdAdminPanelSettings size={24} />,
+          },
+        ]
+      : []),
   ]
 
   const sidebarContent = (
@@ -79,19 +75,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
       </div>
       <div className="flex items-center gap-4">
-        {!isAuthenticated ? (
-          <button
-            className="text-xs md:text-sm cursor-pointer bg-button-bg px-4 py-2 rounded-md text-white font-semibold"
-            onClick={handleConnectWallet}
-          >
-            Connect Wallet
-          </button>
-        ) : (
-          <FaRegUserCircle
-            size={38}
-            className="cursor-pointer text-button-bg"
-          />
-        )}
+        <ConnectWallet variant="button" />
       </div>
     </div>
   )
@@ -104,11 +88,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         toggle={toggle}
         pathname={pathname}
         menu={menu}
-        isAuthenticated={isAuthenticated}
-        user={user}
-        isDropdownOpen={isDropdownOpen}
-        toggleDropdown={toggleDropdown}
-        handleDisconnect={handleDisconnect}
       />
 
       <div className="md:flex md:flex-1 mt-20 min-h-[calc(100vh-80px)] relative overflow-x-hidden">

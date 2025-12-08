@@ -3,6 +3,7 @@
 'use client'
 
 import { UserProvider } from '@/app/context/UserContext'
+import { Web3Provider } from '@/app/context/Web3Provider'
 import {
   MantineProvider,
   Loader as MantineLoader,
@@ -31,18 +32,20 @@ export default function AppProviders({
   children: React.ReactNode
 }) {
   return (
-    <MantineProvider theme={mantineTheme}>
-      <UserProvider>
-        <Suspense
-          fallback={
-            <div className="flex justify-center items-center h-screen">
-              {/* <CustomLoader /> */}
-            </div>
-          }
-        >
-          {children}
-        </Suspense>
-      </UserProvider>
-    </MantineProvider>
+    <Web3Provider>
+      <MantineProvider theme={mantineTheme}>
+        <UserProvider>
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-screen">
+                {/* <CustomLoader /> */}
+              </div>
+            }
+          >
+            {children}
+          </Suspense>
+        </UserProvider>
+      </MantineProvider>
+    </Web3Provider>
   )
 }

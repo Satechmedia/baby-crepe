@@ -3,20 +3,14 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { IoMenu, IoClose } from 'react-icons/io5'
-import { FaRegUserCircle } from 'react-icons/fa'
 import Logo from '@/public/images/logo.png'
-import { User } from '@/app/types/user'
+import { ConnectWallet } from '@/app/components/ConnectWallet'
 
 interface NavbarProps {
   opened: boolean
   toggle: () => void
   pathname: string
   menu: { name: string; href: string; icon: React.ReactNode }[]
-  isAuthenticated: boolean
-  user: User | null
-  isDropdownOpen: boolean
-  toggleDropdown: () => void
-  handleDisconnect: () => void
 }
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -24,11 +18,6 @@ const Navbar: React.FC<NavbarProps> = ({
   toggle,
   pathname,
   menu,
-  isAuthenticated,
-  user,
-  isDropdownOpen,
-  toggleDropdown,
-  handleDisconnect,
 }) => {
   return (
     <header className="fixed top-0 left-0 z-40 w-full flex items-center justify-between bg-[#F3E4D4] md:bg-[#F3ECE3]">
@@ -38,45 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({
           {/* Menu toggle (mobile) */}
           <div className="flex items-center gap-3 md:hidden order-2 md:order-1">
             <div className="flex items-center gap-4">
-              {isAuthenticated && (
-                <div className="relative">
-                  <FaRegUserCircle
-                    size={38}
-                    className="cursor-pointer text-button-bg"
-                    onClick={toggleDropdown}
-                  />
-                  {isDropdownOpen && (
-                    <div className="absolute right-0 top-10 mt-2 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-40 space-y-2.5">
-                      <div className="px-4 py-2  border-b border-gray-700">
-                        <p className="font-semibold capitalize mb-2 flex gap-2 items-center">
-                          <FaRegUserCircle /> {user?.username || 'User'}
-                        </p>
-                        <p className="text-[10px]  mt-1">
-                          Status:{' '}
-                          <span className="text-green-600">
-                            {user?.status === 'active'
-                              ? user?.status
-                              : 'Inactive'}
-                          </span>
-                        </p>
-                        <p className="text-[10px] mt-1">
-                          {user?.tweets || '0'} Tweets •{' '}
-                          {user?.followers || '0'} Followers
-                        </p>
-                      </div>
-                      <p className="px-4 py-2 ">
-                        ⭐ Points: {user?.points ?? 0}
-                      </p>
-                      <button
-                        className="w-full px-4 py-2 text-white bg-red-600 rounded-b-lg cursor-pointer"
-                        onClick={handleDisconnect}
-                      >
-                        Disconnect
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
+              <ConnectWallet variant="icon" />
             </div>
             <button className="cursor-pointer" onClick={toggle}>
               {opened ? <IoClose size={38} /> : <IoMenu size={38} />}
@@ -111,43 +62,9 @@ const Navbar: React.FC<NavbarProps> = ({
           </span>
         </div>
 
-        {/* user dropdown */}
+        {/* Wallet connection */}
         <div className="flex items-center gap-4">
-          {isAuthenticated && (
-            <div className="relative">
-              <FaRegUserCircle
-                size={38}
-                className="cursor-pointer text-button-bg"
-                onClick={toggleDropdown}
-              />
-              {isDropdownOpen && (
-                <div className="absolute right-0 top-10 mt-2 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-40 space-y-2.5">
-                  <div className="px-4 py-2  border-b border-gray-700">
-                    <p className="font-semibold capitalize mb-2 flex gap-2 items-center">
-                      <FaRegUserCircle /> {user?.username || 'User'}
-                    </p>
-                    <p className="text-[10px]  mt-1">
-                      Status:{' '}
-                      <span className="text-green-600">
-                        {user?.status === 'active' ? user?.status : 'Inactive'}
-                      </span>
-                    </p>
-                    <p className="text-[10px] mt-1">
-                      {user?.tweets || '0'} Tweets • {user?.followers || '0'}{' '}
-                      Followers
-                    </p>
-                  </div>
-                  <p className="px-4 py-2 ">⭐ Points: {user?.points ?? 0}</p>
-                  <button
-                    className="w-full px-4 py-2 text-white bg-red-600 rounded-b-lg cursor-pointer"
-                    onClick={handleDisconnect}
-                  >
-                    Disconnect
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
+          <ConnectWallet variant="icon" />
         </div>
       </div>
     </header>
