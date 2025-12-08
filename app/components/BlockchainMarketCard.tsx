@@ -100,7 +100,7 @@ const BlockchainMarketCard: React.FC<BlockchainMarketCardProps> = ({
             className="font-bold text-xs md:text-sm mb-1 line-clamp-2"
             title={market.question}
           >
-            {market.question} <span className="text-gray-900">${targetPriceFormatted}</span>
+            {market.question}
           </h3>
           <p className="text-[10px] md:text-xs text-gray-600 mb-2">
             Target: ${targetPriceFormatted}

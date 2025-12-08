@@ -16,8 +16,8 @@ const MarketPage = () => {
 
   const count = marketCount ? Number(marketCount) : 0
 
-  // Generate array of market IDs (0 to count-1)
-  const marketIds = Array.from({ length: count }, (_, i) => i)
+  // Generate array of market IDs in reverse order (latest first)
+  const marketIds = Array.from({ length: count }, (_, i) => count - 1 - i)
 
   return (
     <div>

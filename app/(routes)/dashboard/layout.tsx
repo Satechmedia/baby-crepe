@@ -25,15 +25,16 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       href: '/dashboard/market',
       icon: <MdOutlineBarChart size={24} />,
     },
-    {
-      name: 'dust converter',
-      href: '/dashboard/dust-converter',
-      icon: <FaExchangeAlt size={24} />,
-    },
+
     {
       name: 'on chain',
       href: '/dashboard/on-chain',
       icon: <RiSettingsLine size={24} />,
+    },
+        {
+      name: 'dust converter',
+      href: '/dashboard/dust-converter',
+      icon: <FaExchangeAlt size={24} />,
     },
     // Admin menu item - only shown to admins
     ...(isAdmin
