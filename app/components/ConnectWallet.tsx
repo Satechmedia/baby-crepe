@@ -7,9 +7,10 @@ import { useState, useRef, useEffect } from 'react'
 interface ConnectWalletProps {
   variant?: 'button' | 'icon'
   className?: string
+  dropdownPosition?: 'left' | 'right'
 }
 
-export function ConnectWallet({ variant = 'button', className = '' }: ConnectWalletProps) {
+export function ConnectWallet({ variant = 'button', className = '', dropdownPosition = 'right' }: ConnectWalletProps) {
   const {
     isConnected,
     isConnecting,
@@ -77,7 +78,7 @@ export function ConnectWallet({ variant = 'button', className = '' }: ConnectWal
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         />
         {isDropdownOpen && (
-          <div className="absolute right-0 top-12 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-48 overflow-hidden z-50">
+          <div className={`absolute ${dropdownPosition === 'left' ? 'left-0' : 'right-0'} top-12 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-48 overflow-hidden z-50`}>
             <div className="px-4 py-3 border-b border-gray-300">
               <p className="font-semibold flex gap-2 items-center">
                 <FaRegUserCircle size={16} />
@@ -132,7 +133,7 @@ export function ConnectWallet({ variant = 'button', className = '' }: ConnectWal
         {shortenAddress}
       </button>
       {isDropdownOpen && (
-        <div className="absolute right-0 top-12 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-48 overflow-hidden z-50">
+        <div className={`absolute ${dropdownPosition === 'left' ? 'left-0' : 'right-0'} top-12 bg-[#F3E4D4] rounded-lg shadow-lg text-xs w-48 overflow-hidden z-50`}>
           <div className="px-4 py-3 border-b border-gray-300">
             {balance && (
               <p className="text-gray-600">

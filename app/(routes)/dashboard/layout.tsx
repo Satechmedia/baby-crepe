@@ -76,7 +76,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <ConnectWallet variant="button" />
+        <ConnectWallet variant="button" dropdownPosition="left" />
       </div>
     </div>
   )
