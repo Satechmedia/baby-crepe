@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -12,6 +12,8 @@
     "@coinbase/wallet-sdk": "^4.3.7",
     "@mantine/core": "^8.3.6",
     "@mantine/hooks": "^8.3.6",
+    "@metamask/sdk": "^0.34.0",
+    "@safe-global/safe-apps-sdk": "^9.1.0",
     "@tanstack/react-query": "^5.90.12",
     "@web3modal/wagmi": "^5.1.11",
     "clsx": "^2.1.1",
