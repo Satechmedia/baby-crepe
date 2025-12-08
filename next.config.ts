@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   // Empty turbopack config to silence the warning in dev mode
@@ -16,15 +17,21 @@ const nextConfig: NextConfig = {
       };
     }
 
+    // Create path to empty module for optional dependencies
+    const emptyModulePath = path.resolve(__dirname, 'empty-module.js');
+
     // Ignore optional peer dependencies for wagmi connectors
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@base-org/account': false,
-      '@gemini-wallet/core': false,
-      'porto': false,
-      '@safe-global/safe-apps-provider': false,
-      '@react-native-async-storage/async-storage': false,
+      '@base-org/account': emptyModulePath,
+      '@gemini-wallet/core': emptyModulePath,
+      'porto': emptyModulePath,
+      'porto/internal': emptyModulePath,
+      '@safe-global/safe-apps-provider': emptyModulePath,
+      '@safe-global/safe-apps-sdk': emptyModulePath,
+      '@react-native-async-storage/async-storage': emptyModulePath,
+      '@metamask/sdk': emptyModulePath,
     };
 
     // Ignore pino and thread-stream to avoid SSR issues
