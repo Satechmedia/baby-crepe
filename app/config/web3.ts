@@ -12,7 +12,7 @@ if (!projectId) {
 const metadata = {
   name: 'Baby Crepe',
   description: 'BNB Price Prediction Market',
-  url: typeof window !== 'undefined' ? window.location.origin : 'https://babycrepe.com',
+  url: typeof window !== 'undefined' ? window.location.origin : 'https://babycrepe.xyz',
   icons: ['/images/logo.png']
 }
 
