@@ -1,19 +1,40 @@
 'use client'
 
-import { createWeb3Modal } from '@web3modal/wagmi/react'
+import { createAppKit } from '@reown/appkit/react'
+import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { WagmiProvider, type State } from 'wagmi'
 import { ReactNode, useState, useEffect } from 'react'
-import { wagmiConfig, projectId } from '@/app/config/web3'
+import { metadata, networks, projectId } from '@/app/config/web3'
 
-// Initialize Web3Modal
+const wagmiAdapter = new WagmiAdapter({
+  networks,
+  projectId,
+  ssr: true,
+})
+
 if (projectId) {
-  createWeb3Modal({
-    wagmiConfig,
+  createAppKit({
+    adapters: [wagmiAdapter],
+    networks,
     projectId,
-    enableAnalytics: false,
-    enableOnramp: false,
+    metadata,
     allWallets: 'ONLY_MOBILE',
+    enableInjected: true,
+    enableEIP6963: true,
+    enableCoinbase: true,
+    enableWallets: true,
+    experimental_preferUniversalLinks: true,
+    enableMobileFullScreen: true,
+    features: {
+      analytics: false,
+      email: false,
+      socials: false,
+      onramp: false,
+      swaps: false,
+      history: false,
+      allWallets: true,
+    },
     customWallets: [
       {
         id: '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
@@ -96,7 +117,7 @@ export function Web3Provider({ children, initialState }: Web3ProviderProps) {
   }, [])
 
   return (
-    <WagmiProvider config={wagmiConfig} initialState={initialState}>
+    <WagmiProvider config={wagmiAdapter.wagmiConfig} initialState={initialState}>
       <QueryClientProvider client={queryClient}>
         {mounted ? children : null}
       </QueryClientProvider>

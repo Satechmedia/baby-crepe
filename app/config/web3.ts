@@ -1,6 +1,4 @@
-import { defaultWagmiConfig } from '@web3modal/wagmi/react/config'
-import { cookieStorage, createStorage } from 'wagmi'
-import { bsc, bscTestnet } from 'wagmi/chains'
+import { bsc } from '@reown/appkit/networks'
 
 // Get projectId from https://cloud.walletconnect.com
 export const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID || ''
@@ -12,29 +10,13 @@ if (!projectId) {
 const metadata = {
   name: 'Baby Crepe',
   description: 'BNB Price Prediction Market',
-  url: typeof window !== 'undefined' ? window.location.origin : 'https://www.babycrepe.xyz',
+  url:
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (typeof window !== 'undefined' ? window.location.origin : 'https://www.babycrepe.xyz'),
   icons: ['/images/logo.png']
 }
 
-// Configure chains - BNB Chain (mainnet and testnet)
-const chains = [bsc, bscTestnet] as const
+// Configure networks - BNB Chain (mainnet only)
+export const networks = [bsc] as const
 
-export const wagmiConfig = defaultWagmiConfig({
-  chains,
-  projectId,
-  metadata,
-  ssr: true,
-  storage: createStorage({
-    storage: cookieStorage
-  }),
-  auth: {
-    email: false,
-    socials: [],
-    showWallets: false,
-    walletFeatures: false,
-  },
-  enableWalletConnect: true,
-  enableInjected: true,
-  enableEIP6963: true,
-  enableCoinbase: true,
-})
+export { metadata }

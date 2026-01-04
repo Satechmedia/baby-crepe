@@ -1,14 +1,14 @@
 'use client'
 
 import { useAccount, useDisconnect, useBalance, useChainId } from 'wagmi'
-import { useWeb3Modal } from '@web3modal/wagmi/react'
+import { useAppKit } from '@reown/appkit/react'
 import { bsc } from 'wagmi/chains'
 import { formatUnits } from 'viem'
 
 export function useWallet() {
   const { address, isConnected, isConnecting } = useAccount()
   const { disconnect } = useDisconnect()
-  const { open } = useWeb3Modal()
+  const { open } = useAppKit()
   const chainId = useChainId()
 
   const { data: balance } = useBalance({
@@ -18,7 +18,7 @@ export function useWallet() {
   const formattedBalance = balance ? formatUnits(balance.value, balance.decimals) : undefined
 
   const connect = () => {
-    open()
+    open({ view: 'Connect' })
   }
 
   const openModal = (view: 'Account' | 'Connect' | 'Networks' = 'Connect') => {
