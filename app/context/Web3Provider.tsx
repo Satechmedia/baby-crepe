@@ -8,7 +8,7 @@ import { ReactNode, useState, useEffect } from 'react'
 import { metadata, networks, projectId } from '@/app/config/web3'
 
 const wagmiAdapter = new WagmiAdapter({
-  networks,
+  networks: networks as any,
   projectId,
   ssr: true,
 })
@@ -16,7 +16,7 @@ const wagmiAdapter = new WagmiAdapter({
 if (projectId) {
   createAppKit({
     adapters: [wagmiAdapter],
-    networks,
+    networks: [...networks],
     projectId,
     metadata,
     allWallets: 'ONLY_MOBILE',
