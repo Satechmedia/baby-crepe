@@ -12,7 +12,7 @@ if (!projectId) {
 const metadata = {
   name: 'Baby Crepe',
   description: 'BNB Price Prediction Market',
-  url: typeof window !== 'undefined' ? window.location.origin : 'https://babycrepe.xyz',
+  url: typeof window !== 'undefined' ? window.location.origin : 'https://www.babycrepe.xyz',
   icons: ['/images/logo.png']
 }
 
@@ -27,6 +27,12 @@ export const wagmiConfig = defaultWagmiConfig({
   storage: createStorage({
     storage: cookieStorage
   }),
+  auth: {
+    email: false,
+    socials: [],
+    showWallets: false,
+    walletFeatures: false,
+  },
   enableWalletConnect: true,
   enableInjected: true,
   enableEIP6963: true,

@@ -39,7 +39,7 @@ export function ConnectWallet({ variant = 'button', className = '', dropdownPosi
   if (isConnecting) {
     return (
       <button
-        disabled
+        onClick={connect}
         className={`text-xs md:text-sm bg-button-bg/70 px-4 py-2 rounded-md text-white font-semibold ${className}`}
       >
         Connecting...
