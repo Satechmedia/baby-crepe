@@ -14,6 +14,58 @@ if (projectId) {
     enableAnalytics: false,
     enableOnramp: false,
     allWallets: 'ONLY_MOBILE',
+    customWallets: [
+      {
+        id: '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0',
+        name: 'Trust Wallet',
+        homepage: 'https://trustwallet.com/',
+        mobile_link: 'trust://',
+        app_store: 'https://apps.apple.com/app/apple-store/id1288339409',
+        play_store: 'https://play.google.com/store/apps/details?id=com.wallet.crypto.trustapp',
+      },
+      {
+        id: 'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96',
+        name: 'MetaMask',
+        homepage: 'https://metamask.io/',
+        mobile_link: 'metamask://',
+        app_store: 'https://apps.apple.com/us/app/metamask/id1438144202',
+        play_store: 'https://play.google.com/store/apps/details?id=io.metamask',
+      },
+      {
+        id: '0b415a746fb9ee99cce155c2ceca0c6f6061b1dbca2d722b3ba16381d0562150',
+        name: 'SafePal',
+        homepage: 'https://safepal.com/',
+        mobile_link: 'safepalwallet://',
+        app_store: 'https://apps.apple.com/app/safepal-wallet/id1548297139',
+        play_store: 'https://play.google.com/store/apps/details?id=io.safepal.wallet',
+      },
+      {
+        id: '8a0ee50d1f22f6651afcae7eb4253e52a3310b90af5daef78a8c4929a9bb99d4',
+        name: 'Binance Wallet',
+        homepage: 'https://www.binance.com/en/web3wallet',
+        mobile_link: 'bnc://app.binance.com/cedefi/',
+        webapp_link: 'https://www.binance.com/en/web3wallet',
+        app_store: 'https://www.binance.com/en/download',
+        play_store: 'https://www.binance.com/en/download',
+      },
+      {
+        id: '971e689d0a5be527bac79629b4ee9b925e82208e5168b733496a09c0faed0709',
+        name: 'OKX Wallet',
+        homepage: 'https://www.okx.com/web3',
+        mobile_link: 'okex://main',
+        webapp_link: 'https://www.okx.com/web3',
+        app_store: 'https://apps.apple.com/us/app/okx-buy-bitcoin-eth-crypto/id1327268470',
+        play_store: 'https://play.google.com/store/apps/details?id=com.okinc.okex.gp',
+      },
+      {
+        id: '5d9f1395b3a8e848684848dc4147cbd05c8d54bb737eac78fe103901fe6b01a1',
+        name: 'OKX Wallet',
+        homepage: 'https://www.okx.com/download',
+        mobile_link: 'okxwallet://main',
+        app_store: 'https://apps.apple.com/us/app/okx-wallet-portal-to-web3/id6743309484',
+        play_store: 'https://play.google.com/store/apps/details?id=com.okx.wallet',
+      },
+    ],
     featuredWalletIds: [
       '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0', // Trust Wallet
       'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96', // MetaMask
