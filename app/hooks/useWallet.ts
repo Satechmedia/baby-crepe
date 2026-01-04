@@ -6,7 +6,7 @@ import { bsc } from 'wagmi/chains'
 import { formatUnits } from 'viem'
 
 export function useWallet() {
-  const { address, isConnected, isConnecting, isReconnecting } = useAccount()
+  const { address, isConnected, isConnecting } = useAccount()
   const { disconnect } = useDisconnect()
   const { open } = useWeb3Modal()
   const chainId = useChainId()
@@ -35,7 +35,7 @@ export function useWallet() {
   return {
     address,
     isConnected,
-    isConnecting: isConnecting || isReconnecting,
+    isConnecting,
     balance: formattedBalance,
     balanceSymbol: balance?.symbol,
     chainId,
