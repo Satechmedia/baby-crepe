@@ -8,7 +8,7 @@ if (!projectId) {
 }
 
 const metadata = {
-  name: 'Baby Crepe',
+  name: 'BABYCREPE',
   description: 'BNB Price Prediction Market',
   url:
     process.env.NEXT_PUBLIC_APP_URL ||

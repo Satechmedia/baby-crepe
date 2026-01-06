@@ -35,7 +35,7 @@ export const transactionsData: Transaction[] = [
   },
   {
     id: 5,
-    name: 'BABY CREPE',
+    name: 'BABYCREPE',
     date: '02/02/2021',
     initial: '$150',
     sold: '$400',

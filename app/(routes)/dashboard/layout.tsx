@@ -70,9 +70,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           <SlEarphones size={16} /> <span>Support</span>
         </div>
         <div className="flex items-center gap-2 px-4 py-2">
-          <FaXTwitter size={16} />
-          <FaTelegram size={16} />
-          <FaTelegram size={16} />
+          <a href="https://x.com/babycrepebnb" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+            <FaXTwitter size={16} />
+          </a>
+          <a href="https://t.me/BABYCREPE" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+            <FaTelegram size={16} />
+          </a>
+          {/* <a href="https://telegram.org" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+            <FaTelegram size={16} />
+          </a> */}
         </div>
       </div>
       <div className="flex items-center gap-4">

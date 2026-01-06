@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import {
   Wallet,
@@ -11,6 +12,7 @@ import {
   ChevronDown,
   Sparkles
 } from 'lucide-react'
+import Logo from '@/public/images/logo.png'
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
@@ -26,15 +28,21 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-[#0D0D0D]/90 backdrop-blur-lg border-b border-white/5' : ''
-      }`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0D0D0D]/90 backdrop-blur-lg border-b border-white/5' : ''
+        }`}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#EE8923] to-[#FF6B00] flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
+              {/* <Sparkles className="w-5 h-5 text-white" /> */}
+              <Image
+                src={Logo}
+                alt="Baby Crepe Logo"
+                width={48}
+                height={48}
+                priority
+              />
             </div>
-            <span className="text-xl font-bold">Baby Crepe</span>
+            <span className="text-xl font-bold">BABYCREPE</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-gray-400 hover:text-white transition-colors">Features</a>
@@ -325,17 +333,23 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#EE8923] to-[#FF6B00] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
+                <Image
+                  src={Logo}
+                  alt="Baby Crepe Logo"
+                  width={48}
+                  height={48}
+                  priority
+                />
               </div>
-              <span className="font-semibold">Baby Crepe</span>
+              <span className="font-semibold">BABYCREPE</span>
             </div>
             <div className="text-gray-500 text-sm">
               Built with love for the BSC community
             </div>
             <div className="flex items-center gap-6">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Twitter</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Telegram</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Discord</a>
+              <a href="https://x.com/babycrepebnb" target='_blank' className="text-gray-400 hover:text-white transition-colors text-sm">Twitter</a>
+              <a href="https://t.me/BABYCREPE" target='_blank' className="text-gray-400 hover:text-white transition-colors text-sm">Telegram</a>
+              {/* <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Discord</a> */}
             </div>
           </div>
         </div>

@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({
               />
             </Link>
             <span className="text-[12px] font-bold font-poppins uppercase">
-              Baby Crepe
+              BABYCREPE
             </span>
           </div>
         </div>
